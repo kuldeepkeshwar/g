@@ -2,6 +2,7 @@ const expect = require('chai').expect;
 import Canvas from '../../src/abstract/canvas';
 
 const dom = document.createElement('div');
+dom.id = 'c1';
 document.body.appendChild(dom);
 
 class MyCanvas extends Canvas {
@@ -52,6 +53,18 @@ describe('test canvas', () => {
     const el = canvas.get('el');
     expect(el.style.width).eqls('600px');
     expect(el.style.height).eqls('600px');
+  });
+
+  it('hide', () => {
+    canvas.hide();
+    expect(canvas.get('visible', false));
+    expect(canvas.get('el').style.display).eql('none');
+  });
+
+  it('show', () => {
+    canvas.show();
+    expect(canvas.get('visible', true));
+    expect(canvas.get('el').style.display).eql('');
   });
 
   it('destroy', () => {

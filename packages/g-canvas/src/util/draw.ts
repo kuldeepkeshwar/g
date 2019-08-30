@@ -146,7 +146,8 @@ export function getRefreshRegion(element) {
     const bbox = element.getCanvasBBox();
     region = mergeRegion(cacheBox, bbox);
   } else {
-    // 因为元素已经销毁所以无法获取到缓存的包围盒
+    // 由于元素已经销毁，所以无法获取当前包围盒，
+    // 只需要重绘缓存的包围盒对应的 region 即可
     region = element['_cacheCanvasBBox'];
   }
   return region;

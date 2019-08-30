@@ -104,6 +104,22 @@ abstract class Canvas extends Container implements ICanvas {
     el.parentNode.removeChild(el);
   }
 
+  // 显示画布
+  show() {
+    this.set('visible', true);
+    const el = this.get('el');
+    el.style.display = '';
+    return this;
+  }
+
+  // 隐藏画布
+  hide() {
+    this.set('visible', false);
+    const el = this.get('el');
+    el.style.display = 'none';
+    return this;
+  }
+
   /**
    * @protected
    * 清理所有的事件
